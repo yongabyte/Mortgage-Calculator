@@ -1,0 +1,60 @@
+<aura:component >
+    
+    <aura:attribute name="mortgage" type="Mortgage__c"/>
+    <aura:attribute name ="monthly" type="Double"/>
+	<aura:handler name="init" value="{!this}" action="{!c.click}"/>
+	<aura:handler name="change" value="{!v.monthly}" action="{!c.onUpdate}"/>
+    
+    <aura:attribute name="lengths" type="List" default="[
+    {'label': '15 years', 'value': '15'},
+    {'label': '30 years', 'value': '30'},
+    ]"/>
+    <div aria-labelledby="newMortgageform">
+        <fieldset class="slds-box slds-theme--default slds-container--small">
+        <legend id="newMortgageform" class="slds-text-heading--large
+          slds-p-vertical--medium">
+          Mortgage Calculator
+        </legend>
+
+        <form class="slds-form--stacked">
+            <lightning:input type="number" aura:id="mortgageform" label="Home Price"
+                             name="home_price"
+                             formatter="currency"
+                             step="1"
+                             value="{!v.mortgage.home_price__c}"
+                             required="true"/>
+            <lightning:input type="number" aura:id="mortgageform" label="Down Payment"
+                             name="down_payment"
+                             step ="1"
+                             max = "{!v.mortgage.home_price__c}"
+                             formatter="currency"
+                             value="{!v.mortgage.down_payment__c}"
+                             required="true"
+                             messageWhenRangeOverflow="Enter an amount that's less than home price."/>
+            <lightning:input type="number" aura:id="mortgageform" label="Interest Rate"
+                             step="0.001"
+                             name="interest_rate"
+                             formatter="percent-fixed"
+                             value="{!v.mortgage.interest_rate__c}"
+                             required="true"
+                             />
+            <lightning:combobox options="{!v.lengths}" aura:id="mortgageform" label="Length of loan"
+                             name="length_of_loan"
+                             value="{!v.mortgage.length_of_loan__c}"/>
+            
+            <lightning:input type="number" aura:id="mortgageform" label="Property tax"
+                             name="property_tax"
+                             formatter="currency"
+                             value="{!v.mortgage.property_tax__c}"/>
+            <lightning:input type="number" aura:id="mortgageform" label="Homeowner's insurance"
+                             name="property_tax"
+                             formatter="currency"
+                             value="{!v.mortgage.homeowners_insurance__c}"/>   
+            <lightning:button label="Monthly payment"
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.click}"/>
+        </form>
+      </fieldset>
+    </div>
+</aura:component>

@@ -1,0 +1,26 @@
+<aura:component >
+	<aura:attribute name ="monthly" type="Double"/>
+    <aura:attribute name="mortgage" type="Mortgage__c"/>
+    <aura:attribute name="max" type="Integer" default ="1000"/>
+    <aura:attribute name="min" type="Integer" default ="0"/>
+
+    <fieldset class="slds-box slds-theme--default slds-container--big">
+     	<div>
+            <h1>Your estimated monthly payment: </h1>
+	        <p><lightning:formattedNumber value="{!v.monthly}" style="currency" currencyCode="USD"/></p>
+        </div>
+        <div id = "slider" class="slds-m-top_medium">
+            <lightning:slider 
+                              aura:id="monthlySlider"
+                              min = "{!v.min}"
+                              max = "{!v.max}"
+                              value="{!v.monthly}"
+                              onchange="{!c.handleRangeChange}"
+                              /> 
+        </div>
+        <p></p>
+		<div id ="chart">
+            <c:PieChart monthly="{!v.monthly}" mortgage="{!v.mortgage}"/>
+        </div>        
+    </fieldset>
+</aura:component>

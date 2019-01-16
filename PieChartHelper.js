@@ -5,7 +5,11 @@
                     - component.get("v.mortgage.homeowners_insurance__c");
         var dataset=[loan,component.get("v.mortgage.property_tax__c"),
                      component.get("v.mortgage.homeowners_insurance__c")] ;
-       
+        
+        for (let i = 0; i < dataset.length; i++){
+            dataset[i] = (dataset[i]/1).toFixed(2);
+        }
+        
         new Chart(document.getElementById("pie-chart"), {
             type: 'pie',
             data: {

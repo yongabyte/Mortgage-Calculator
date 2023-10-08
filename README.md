@@ -54,5 +54,5 @@ If you encounter any issues or have suggestions for improvement, please open an 
 
 ## License
 
-This Mortgage Calculator Aura Component is released under the MIT License - see the [LICENSE](LICENSE) file for
+This Mortgage Calculator Aura Component is released under the MIT License - see the [LICENSE](LICENSE) file for details.
 

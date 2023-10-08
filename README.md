@@ -36,14 +36,6 @@ sfdx force:source:deploy -p path/to/source
 
 5. Access the page with the Mortgage Calculator, and users can start using it to calculate mortgage payments.
 
-## Configuration
-
-You can customize the Mortgage Calculator Aura Component by modifying its attributes. To do this, open the component in Salesforce Lightning App Builder, and adjust the following attributes:
-
-- `loanAmount`: The default loan amount.
-- `interestRate`: The default interest rate.
-- `loanTerm`: The default loan term (in years).
-
 ## Pie Chart Visualization
 
 The Pie Chart visualization provides a graphical representation of the mortgage breakdown, showing the proportion of principal and interest in each monthly payment.
